@@ -19,7 +19,7 @@ public class AddTask {
 			Task newTask = new Task();
 
 			stdout.print("Enter the task name: ");
-			newTask.setTask(stdin.readLine());
+			newTask.setName(stdin.readLine());
 
 			stdout.print("Enter the task context: ");
 			newTask.setContext(stdin.readLine());
