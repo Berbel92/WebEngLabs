@@ -5,13 +5,17 @@ public class Task {
 	public String name;
 	public String context;
 	public String project;
-	public String priority;
+	public int priority;
 	
-	public Task(String name, String context, String project, String priority){
+	public Task(String name, String context, String project, int priority){
 		this.name = name;
 		this.context = context;
 		this.project = project;
 		this.priority = priority;
+	}
+	
+	public Task(){
+		
 	}
 	
 	public String getName(){
@@ -38,11 +42,11 @@ public class Task {
 		this.project = project;
 	}
 	
-	public String getPriority(){
+	public int getPriority(){
 		return this.priority;
 	}
 	
-	public void setPriority(String priority){
+	public void setPriority(int priority){
 		this.priority = priority;
 	}
 }
