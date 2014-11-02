@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>ToDo Web Application</title>
+</head>
+<body>
+	<h1>Enter the json file name with tasks to list </h1>
+	<form method="get" action="ListTasksServlet">
+		<input type="file" name="file" required><br/>
+		<h1>Choose a query condition</h1>
+		<select  name="property">
+  			<option value="name">Task Name</option>
+  			<option value="context">Task Context</option>
+  			<option value="project">Task Project</option>
+  			<option value="priority(0-10)">Task Priority</option>
+		</select>
+		Text for the query:<input type="text" name="text"><br/>
+		<br/><input type="submit" value="List tasks">
+	</form>
+</body>
+</html>
