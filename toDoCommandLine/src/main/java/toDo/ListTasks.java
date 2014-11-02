@@ -10,7 +10,7 @@ public class ListTasks {
 
 	static void Print(TasksList tasksList) {
 		for (Task task : tasksList.getTasksList()) {
-			System.out.println("\nTask name: " + task.getTask());
+			System.out.println("\nTask name: " + task.getName());
 			System.out.println("     context: " + task.getContext());
 			System.out.println("     project: " +  task.getProject());
 			System.out.println("     priority(0-10): " + task.getPriority() + "\n");
