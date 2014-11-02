@@ -7,7 +7,7 @@ public class Task {
 	public String project;
 	public int priority;
 	
-	public Task(String name, String context, String project, String priority){
+	public Task(String name, String context, String project, int priority){
 		this.name = name;
 		this.context = context;
 		this.project = project;

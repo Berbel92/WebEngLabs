@@ -6,9 +6,10 @@ import com.google.gson.Gson;
 
 public class ListTasks {
 
-	public final static String DEFAULT_FILE_NAME = "toDo_tasks.json";
+	public final static String DEFAULT_FILE_NAME = "tasks.json";
 
 	static void Print(TasksList tasksList) {
+		
 		for (Task task : tasksList.getTasksList()) {
 			System.out.println("\nTask name: " + task.getName());
 			System.out.println("     context: " + task.getContext());
@@ -18,14 +19,20 @@ public class ListTasks {
 	}
 
 	public static void main(String[] args) throws Exception {
+		System.out.println("EJECUTANDO EL PROGRAMA!!!!!!!!");
 		Gson gson = new Gson();
 		String filename = DEFAULT_FILE_NAME;
 		if (args.length > 0) {
 			filename = args[0];
 		}
+		TasksList tasksList = new TasksList();
 
-		TasksList tasksList = gson.fromJson(new FileReader(filename),
+		tasksList = gson.fromJson(new FileReader(filename),
 				TasksList.class);
+		
+		
+		
+		System.out.println(tasksList.cuantos());
 
 		Print(tasksList);
 	}

@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 
 public class AddTask {
 	
-	public final static String DEFAULT_FILE_NAME = "tasksList.json";
+	public final static String DEFAULT_FILE_NAME = "tasks.json";
 
 	static Task PromptForTask(BufferedReader stdin, PrintStream stdout){
 		
@@ -60,7 +60,6 @@ public class AddTask {
 		TasksList tasksList = new TasksList();
 		Gson gson = new Gson();
 
-		// Read the existing address book.
 		try {
 			tasksList = gson.fromJson(new FileReader(filename), TasksList.class);
 		} catch (FileNotFoundException e) {
@@ -68,11 +67,9 @@ public class AddTask {
 					+ ": File not found.  Creating a new file.");
 		}
 
-		// Add an address.
-		tasksList.addItem(PromptForToDo(new BufferedReader(
+		tasksList.addTask(PromptForTask(new BufferedReader(
 				new InputStreamReader(System.in)), System.out));
 
-		// Write the new address book back to disk.
 		FileWriter output = new FileWriter(filename);
 		output.write(gson.toJson(tasksList));
 		output.close();

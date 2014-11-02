@@ -5,17 +5,21 @@ import java.util.List;
 
 public class TasksList {
 
-	private List<Task> personList = new ArrayList<Task>();
+	private List<Task> tasksList = new ArrayList<Task>();
 
 	public List<Task> getTasksList() {
-		return personList;
+		return tasksList;
 	}
 
-	public void setPersonList(List<Task> tasks) {
-		this.personList = tasks;
+	public void setTasksList(List<Task> tasks) {
+		this.tasksList = tasks;
 	}
 
 	public void addTask(Task task) {
-		personList.add(task);
+		tasksList.add(task);
+	}
+	
+	public int cuantos(){
+		return tasksList.size();
 	}
 }
