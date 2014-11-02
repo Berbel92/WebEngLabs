@@ -18,7 +18,7 @@ task addItem(type: JavaExec, dependsOn: classes) {
     }
     group 			= 'Formats JSON'
     description 	= 'Add a item to toDo list'
-    main 			= 'toDo.json.AddItem'
+    main 			= 'toDo.AddTask'
 	classpath 		= sourceSets.main.runtimeClasspath
 	standardInput	= System.in
 } 
@@ -26,6 +26,6 @@ task addItem(type: JavaExec, dependsOn: classes) {
 task toDoMain(type: JavaExec) {
     group 			= 'Formats JSON'
     description 	= 'List the contents of toDo list'
-    main 			= 'toDo.json.ToDoMain'
+    main 			= 'toDo.ListTasks'
 	classpath 		= sourceSets.main.runtimeClasspath
 }
