@@ -2,24 +2,24 @@ package toDo;
 
 public class Task {
 	
-	public String task;
+	public String name;
 	public String context;
 	public String project;
 	public String priority;
 	
-	public Task(String task, String context, String project, String priority){
-		this.task = task;
+	public Task(String name, String context, String project, String priority){
+		this.name = name;
 		this.context = context;
 		this.project = project;
 		this.priority = priority;
 	}
 	
-	public String getTask(){
-		return this.task;
+	public String getName(){
+		return this.name;
 	}
 	
-	public void setTask(String task){
-		this.task = task;
+	public void setName(String name){
+		this.name = name;
 	}
 	
 	public String getContext(){
