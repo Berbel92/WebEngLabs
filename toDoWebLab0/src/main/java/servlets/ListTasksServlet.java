@@ -15,11 +15,9 @@ import com.google.gson.Gson;
 
 import toDo.Task;
 import toDo.TasksList;
-import toDo.ToDo;
-import toDo.ToDoList;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/ToDoListTasks" })
+@WebServlet(urlPatterns = { "/ListTasksServlet" })
 public class ListTasksServlet extends HttpServlet {
 
 	@Override
@@ -56,17 +54,17 @@ public class ListTasksServlet extends HttpServlet {
 					}
 				} 
 				else {
-					if (String.valueOf(task.getPriority()).compareTo(text) == 0) {
+					if (task.getPriority() == Integer.valueOf(text)) {
 						list = list + convertTaskToHtml(task);
 					}
 				}
-				if (list.compareTo("") == 0){
-					list = "<br/><b>No results for your query.</b><br/>";
-				}
+			}
+			if (list.length() == 0){
+				list = "<br/><b>Error: No results for your query.</b><br/>";
 			}
 			
 			out.println("<html><head><title>ToDo tasks list</title></head>"
-					+ "<body><h1>Results for your query in file \"" + fileName + "\"</h1>"
+					+ "<body><h1>Results for your query in file " + fileName + "</h1>"
 					+ "<br/><p>" + list + "</p>"
 					+ "</body></html>");
 			
@@ -81,8 +79,8 @@ public class ListTasksServlet extends HttpServlet {
 
 	private String convertTaskToHtml(Task task) {
 		String html = "";
-		html += "<br/><b>TASK NAME</b>: " + task.getName()
-				+ "<br/>Task context: " + task.getContext()
+		html += "<br/>Task name: <b>" + task.getName()
+				+ "</b><br/>Task context: " + task.getContext()
 				+ "<br/>Task project: " +  task.getProject()
 				+ "<br/>Task priority(0-10): " + task.getPriority() + "<br/>";
 		return html;
