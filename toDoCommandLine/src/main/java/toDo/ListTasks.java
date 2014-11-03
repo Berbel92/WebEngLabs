@@ -19,7 +19,6 @@ public class ListTasks {
 	}
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("EJECUTANDO EL PROGRAMA!!!!!!!!");
 		Gson gson = new Gson();
 		String filename = DEFAULT_FILE_NAME;
 		if (args.length > 0) {
@@ -29,10 +28,6 @@ public class ListTasks {
 
 		tasksList = gson.fromJson(new FileReader(filename),
 				TasksList.class);
-		
-		
-		
-		System.out.println(tasksList.cuantos());
 
 		Print(tasksList);
 	}

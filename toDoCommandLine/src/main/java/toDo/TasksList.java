@@ -18,8 +18,4 @@ public class TasksList {
 	public void addTask(Task task) {
 		tasksList.add(task);
 	}
-	
-	public int cuantos(){
-		return tasksList.size();
-	}
 }
