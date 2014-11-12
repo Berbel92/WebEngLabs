@@ -18,7 +18,7 @@ import javax.ws.rs.core.UriInfo;
 
 
 /**
- * A service that manipulates contacts in an address book.
+ * A service that manipulates a toDo list.
  *
  */
 @Path("/toDoList")
@@ -27,22 +27,12 @@ public class ToDoRestService {
 	@Inject
 	TasksList tasksList;
 
-	/**
-	 * A GET /contacts request should return the address book in JSON.
-	 * @return a JSON representation of the address book.
-	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public TasksList tasksList() {
 		return tasksList;
 	}
 
-	/**
-	 * A POST /contacts request should add a new entry to the address book.
-	 * @param info the URI information of the request
-	 * @param person the posted entity
-	 * @return a JSON representation of the new entry that should be available at /contacts/person/{id}.
-	 */
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addTask(@Context UriInfo info, Task task) {
@@ -52,11 +42,6 @@ public class ToDoRestService {
 		return Response.created(task.getHref()).entity(task).build();
 	}
 
-	/**
-	 * A GET /contacts/person/{id} request should return a entry from the address book
-	 * @param id the unique identifier of a person
-	 * @return a JSON representation of the new entry or 404
-	 */
 	@GET
 	@Path("/task/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -69,13 +54,6 @@ public class ToDoRestService {
 		return Response.status(Status.NOT_FOUND).build();
 	}
 
-	/**
-	 * A PUT /contacts/person/{id} should update a entry if exists
-	 * @param info the URI information of the request
-	 * @param person the posted entity
-	 * @param id the unique identifier of a person
-	 * @return a JSON representation of the new updated entry or 400 if the id is not a key
-	 */
 	@PUT
 	@Path("/task/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -92,11 +70,6 @@ public class ToDoRestService {
 		return Response.status(Status.BAD_REQUEST).build();
 	}
 
-	/**
-	 * A DELETE /contacts/person/{id} should delete a entry if exists
-	 * @param id the unique identifier of a person
-	 * @return 204 if the request is successful, 404 if the id is not a key
-	 */
 	@DELETE
 	@Path("/task/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
