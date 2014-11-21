@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>ToDo Web Application</title>
+</head>
+<body>
+	<h1>Enter the json file name with tasks to list </h1>
+	
+		<input type="file" name="fileName" required><br/>
+	
+	<h1>Add new task</h1>
+		Task Name:<input type="text" name="name">
+		Task Context:<input type="text" name="context">
+		Task Project:<input type="text" name="project">
+		Task Priority (0-10):<input type="text" name="priority">
+		<input type="submit" value="Add Task">
+	
+	<h1>Delete existing task</h1>
+		<select  name="condition">
+  			<option value="name">Task Name</option>
+  			<option value="context">Task Context</option>
+  			<option value="project">Task Project</option>
+  			<option value="priority">Task Priority (0-10)</option>
+		</select>
+		Property value:<input type="text" name="text">
+		<input type="submit" value="Delete Task">
+	
+			<div class="fixedHeaderTable">
+			<h1>Current Tasks List</h1>
+			<table  id="listToDo">
+				<thead>
+					<tr>
+						<th>Name</th><th>Project</th><th>Context</th><th>Priority</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="js/application.js"></script>
+</body>
+</html>
